@@ -1,2 +1,25 @@
+# Ignore all JSON files
 *.json
+
+# Ignore all text files
 *.txt
+
+# Ignore virtual environment directories
+tse/
+.tse/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore IDE project files
+.vscode/
+.idea/
+
+# Ignore build artifacts
+build/
+dist/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
