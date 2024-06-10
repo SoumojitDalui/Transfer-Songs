@@ -35,7 +35,7 @@ def data_to_file(type, data, filename):
 
 def read_lines_from_file(filename):
     """
-    Loads data from a file.
+    Reads lines from a file.
     """
     with open(filename) as f:
         lines = f.readlines()
@@ -107,6 +107,9 @@ def add_ytmusic_playlist(ytmusic):
     return playlist_ytmusic_id
 
 def ytmusic_playlist(ytmusic):
+    """
+    Selects a playlist from Youtube and returns its ID.
+    """
     if not check_if_exists('ytm_playlists.txt'):
         return add_ytmusic_playlist(ytmusic)
     else:
@@ -141,7 +144,7 @@ def connect_spotify_oauth(playlist_spotify_id):
 
 def add_spotify_playlist():
     """
-    Creates a new playlist on Spotify and adds playlist to spot_playlists.txt.
+    Creates a new playlist on Spotify, adds playlist to spot_playlists.txt and returns its ID.
     """
     playlist_spotify_url = input("Enter playlist url from spotify: ")
     playlist_spotify_id = playlist_spotify_url.split("/")[-1]
@@ -160,6 +163,9 @@ def add_spotify_playlist():
         exit()
 
 def spotify_playlist():
+    """
+    Selects a playlist from Spotify and returns its ID.
+    """
     if not check_if_exists('spot_playlists.txt'):
         return add_spotify_playlist()
     else:
@@ -174,6 +180,9 @@ def spotify_playlist():
             exit()
 
 def tranfer_songs(ytmusic, playlist_ytmusic_id, playlist_spotify_id):
+    """
+    Transfers songs from Spotify to YouTube Music.
+    """
     response = connect_spotify_oauth(playlist_spotify_id)
     if response.status_code == 200:
         playlist_data = response.json()
