@@ -1,6 +1,8 @@
 # Spotify to YouTube Music Playlist Transfer
 This script allows you to transfer songs from a Spotify playlist to a YouTube Music playlist using OAuth for authentication. It utilizes the ytmusicapi library to interact with YouTube Music and the requests library to interact with the Spotify API.
 
+## Please star the repo if it was helpful!
+
 ### Prerequisites
 - Python 3.6 or higher
 - ytmusicapi library
