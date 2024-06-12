@@ -206,7 +206,11 @@ def tranfer_songs(ytmusic, playlist_ytmusic_id, playlist_spotify_id):
                         song_search = track_name+ " " + track_artists
                         search_results = ytmusic.search(song_search)
                         time.sleep(1)
-                        ytmusic.add_playlist_items(playlist_ytmusic_id, [search_results[0]['videoId']])
+                        video_id = next((result['videoId'] for result in search_results if result['videoId'] is not None), None)
+                        if video_id is None:
+                            print(f"{track_name} by {track_artists} not found \n")
+                            continue
+                        ytmusic.add_playlist_items(playlist_ytmusic_id, video_id)
                         print(f"{track_name} by {track_artists} added \n")
                         data_to_file('txt', track_name, 'tranfered.txt')
                         tranfered_iterate += 1
@@ -218,7 +222,11 @@ def tranfer_songs(ytmusic, playlist_ytmusic_id, playlist_spotify_id):
                     song_search = track_name+ " " + track_artists
                     search_results = ytmusic.search(song_search)
                     time.sleep(1)
-                    ytmusic.add_playlist_items(playlist_ytmusic_id, [search_results[0]['videoId']])
+                    video_id = next((result['videoId'] for result in search_results if result['videoId'] is not None), None)
+                    if video_id is None:
+                        print(f"{track_name} by {track_artists} not found \n")
+                        continue
+                    ytmusic.add_playlist_items(playlist_ytmusic_id, video_id)
                     print(f"{track_name} by {track_artists} added \n")
                     data_to_file('txt', track_name, 'tranfered.txt')
                     tranfered_iterate += 1
@@ -238,6 +246,6 @@ def main():
     playlist_ytmusic_id = ytmusic_playlist(ytmusic)
     playlist_spotify_id = spotify_playlist()
     tranfer_songs(ytmusic, playlist_ytmusic_id, playlist_spotify_id)
-
+        
 if __name__=="__main__": 
     main()
