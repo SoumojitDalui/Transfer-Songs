@@ -1,12 +1,12 @@
 # Ignore all JSON files
-*.json
+demo.json
 
 # Ignore all text files
 *.txt
 
 # Ignore virtual environment directories
-tse/
-.tse/
+tbe/
+.tbe/
 
 # Ignore Python cache files
 __pycache__/
@@ -19,7 +19,20 @@ __pycache__/
 # Ignore build artifacts
 build/
 dist/
+dist
 
 # Ignore system files
 .DS_Store
 Thumbs.db
+
+node_modules
+
+# logs
+*.log
+
+# next.js
+.next
+next-env.d.ts
+
+# build
+/app
