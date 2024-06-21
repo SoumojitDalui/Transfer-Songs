@@ -5,8 +5,7 @@ demo.json
 *.txt
 
 # Ignore virtual environment directories
-tbe/
-.tbe/
+.venv/
 
 # Ignore Python cache files
 __pycache__/
